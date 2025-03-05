@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Define the environment variables or use defaults
+APP_NAME=${APP_NAME:-"my-app"}       # Use APP_NAME from env or default to "my-app"
+AUTHOR_NAME=${AUTHOR_NAME:-"John Doe"}
+AUTHOR_EMAIL=${AUTHOR_EMAIL:-"john.doe@example.com"}
+
+# Create the Cargo.toml from the template and replace placeholders
+sed "s/{{APP_NAME}}/$APP_NAME/" Cargo.toml.template | \
+sed "s/{{AUTHOR_NAME}}/$AUTHOR_NAME/" | \
+sed "s/{{AUTHOR_EMAIL}}/$AUTHOR_EMAIL/" > Cargo.toml
+
+echo "Generated Cargo.toml for $APP_NAME"
