@@ -4,7 +4,7 @@
 DIR_TO_COMPRESS="shared"
 
 # Define the output archive file name
-OUTPUT_ARCHIVE="cache/taloniadata.tar.gz"
+OUTPUT_ARCHIVE="../cache/taloniadata.tar.gz"
 
 # Check if directory exists
 if [ ! -d "$DIR_TO_COMPRESS" ]; then
@@ -12,7 +12,8 @@ if [ ! -d "$DIR_TO_COMPRESS" ]; then
     exit 1
 fi
 
+cd "$DIR_TO_COMPRESS"
 # Compress the directory into a tar.gz file
-tar -czvf "$OUTPUT_ARCHIVE" "$DIR_TO_COMPRESS"
+tar -czvf "$OUTPUT_ARCHIVE" "."
 
 echo "Directory $DIR_TO_COMPRESS has been compressed into $OUTPUT_ARCHIVE"
